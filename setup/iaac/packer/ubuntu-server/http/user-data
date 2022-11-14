@@ -1,0 +1,37 @@
+#cloud-config
+autoinstall:
+  version: 1
+  locale: en_US
+  keyboard:
+    layout: us
+  ssh:
+    install-server: true
+    allow-pw: true
+    disable_root: true
+    ssh_quiet_keygen: true
+    allow_public_ssh_keys: true
+  packages:
+    - qemu-guest-agent
+    - sudo
+  storage:
+    layout:
+      name: direct
+    swap:
+      size: 0
+  user-data:
+    package_upgrade: false
+    timezone: Europe/Moscow
+    users:
+      - name: packer
+        passwd: "$6$rounds=4096$r2i/fqTHa8Ffa8Vl$Yi1qw9XSMzjkv5nvdHwdsPHLakfgYTshpFKemcRSfrt5rRBYMCHIUP/3Xjl3mW0h72r7zh/NKukzpZbPMeuLc/"
+        groups: [adm, sudo]
+        lock_passwd: false
+        sudo: ALL=(ALL) NOPASSWD:ALL
+        shell: /bin/bash
+      - name: vergl
+        groups: [adm, sudo]
+        lock-passwd: false
+        sudo: ALL=(ALL) NOPASSWD:ALL
+        shell: /bin/bash
+        ssh_authorized_keys:
+          - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC/X2J5Hn670OHmpCoJOjPRySLVEnldthGx2L4Qo9rJ3thSVQdLwplS4a02I8Jl7L6RKD8wiPlfK5Au1xEJaga5tYCNGpqQkoiVM6ScJzZCt3amw5Tp3OE9YDCGKciq1ufKPLR93hh/sob21qGSdtV5VjHmzOxx8ay6jWnyi1bdOxmquk4pfvLn6NxLijuK015fj4nh3u2s8yIBsZGAUF8sbvj6bpvNOWPXk0EgtgYec8JYW1kW/QFXRDMEHijQrz8KXEoc2SqCHLuGBt3U3N7HY2atNTe2qek6QdfRQaCk4SVMeHVz1bw8pG1d2nh1ReD8O8UgKo1yPrtxjGfjMB7ng3TQkqLpXMBelJojrdZncP/BaJH9ZcZrJnWHXmT7pin/UnfNSy1z/Fcs88Bu6jXktVIzC3aSQJ2aOjSWJmyrelB3BqzE4BcHGdgjfaYHJMxXWMlN/jjRqORRdqweFqpomgOIPOO/0wi37aPneIY6SZP7TxqqQ6FpH4GnHdCnBas= stanislavgiley@MacBook-Pro-Stanislav-2.local
