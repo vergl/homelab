@@ -16,6 +16,17 @@ variable "proxmox_api_token_secret" {
     sensitive = true
 }
 
+variable "ssh_user" {
+    description = "User for remote_exec"
+    type = string
+}
+
+variable "ssh_password" {
+    description = "Password for ssh_user"
+    type = string
+    sensitive = true
+}
+
 variable "debug" {
     description = "Debug mode"
     type = bool
