@@ -28,7 +28,19 @@ autoinstall:
         lock_passwd: false
         sudo: ALL=(ALL) NOPASSWD:ALL
         shell: /bin/bash
-      - name: vergl
+      - name: ansible
+        passwd: "$6$rounds=4096$4IWVQwuGzAL7l.9w$1KITdVn.ec/ruklZBcZQgcc6h1PfjUI9JbpwAbXDbCCW6hDQK0cdEA7lo1FAfqQegKAuIt5earxBTSwMRZhkL0"
+        groups: [adm, sudo]
+        lock_passwd: false
+        sudo: ALL=(ALL) NOPASSWD:ALL
+        shell: /bin/bash
+      - name: terraform
+        passwd: "$6$rounds=4096$TYYruRavrDwk0CWD$THwO/e7lzSGD2YYHKYfMIRxfgqfMKpSdSSbE64cNO5QWqtdHqbKshgaa9FYttC0Um1ZAESHZ5rWzy73vdzVUc0"
+        groups: [adm, sudo]
+        lock_passwd: false
+        sudo: ALL=(ALL) NOPASSWD:ALL
+        shell: /bin/bash
+      - name: stanislavgiley
         groups: [adm, sudo]
         lock-passwd: false
         sudo: ALL=(ALL) NOPASSWD:ALL
