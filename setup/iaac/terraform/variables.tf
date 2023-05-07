@@ -206,3 +206,40 @@ variable "bastion_ip" {
   type        = string
   default     = "192.168.0.150"
 }
+
+## Postgresql
+variable "postgresql_memory" {
+  description = "Postgresql memory (in Mb)"
+  type        = number
+  default     = 2048
+}
+
+variable "postgresql_cores" {
+  description = "Postgresql cores"
+  type        = number
+  default     = 1
+}
+
+variable "postgresql_disk_type" {
+  description = "The type of disk device to add. Options: ide, sata, scsi, virtio"
+  type        = string
+  default     = "virtio"
+}
+
+variable "postgresql_disk_size" {
+  description = "The size of the created disk"
+  type        = string
+  default     = "50G"
+}
+
+variable "postgresql_storage" {
+  description = "The name of the storage pool on which to store the disk"
+  type        = string
+  default     = "ssdint"
+}
+
+variable "postgresql_ip" {
+  description = "IP address for postgresql"
+  type        = string
+  default     = "192.168.0.160"
+}
