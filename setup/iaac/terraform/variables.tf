@@ -211,7 +211,7 @@ variable "bastion_ip" {
 variable "postgresql_memory" {
   description = "Postgresql memory (in Mb)"
   type        = number
-  default     = 2048
+  default     = 4096
 }
 
 variable "postgresql_cores" {
