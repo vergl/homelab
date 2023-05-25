@@ -243,3 +243,41 @@ variable "postgresql_ip" {
   type        = string
   default     = "192.168.0.160"
 }
+
+
+## Docker VM
+variable "docker_vm_memory" {
+  description = "Docker VM memory (in Mb)"
+  type        = number
+  default     = 8192
+}
+
+variable "docker_vm_cores" {
+  description = "Docker VM cores"
+  type        = number
+  default     = 2
+}
+
+variable "docker_vm_disk_type" {
+  description = "The type of disk device to add. Options: ide, sata, scsi, virtio"
+  type        = string
+  default     = "virtio"
+}
+
+variable "docker_vm_disk_size" {
+  description = "The size of the created disk"
+  type        = string
+  default     = "50G"
+}
+
+variable "docker_vm_storage" {
+  description = "The name of the storage pool on which to store the disk"
+  type        = string
+  default     = "ssdint"
+}
+
+variable "docker_vm_ip" {
+  description = "IP address for Docker VM"
+  type        = string
+  default     = "192.168.0.170"
+}
