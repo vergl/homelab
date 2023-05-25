@@ -10,6 +10,7 @@ resource "proxmox_vm_qemu" "proxmox_vm_postgresql" {
   memory      = var.postgresql_memory
   cores       = var.postgresql_cores
   boot        = "order=virtio0;ide2;net0;ide0"
+  onboot      = true
   disk {
     size     = var.postgresql_disk_size
     type     = var.postgresql_disk_type

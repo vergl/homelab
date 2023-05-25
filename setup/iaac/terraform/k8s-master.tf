@@ -10,6 +10,7 @@ resource "proxmox_vm_qemu" "proxmox_vm_master" {
   memory      = var.master_node_memory
   cores       = var.master_node_cores
   boot        = "order=virtio0;ide2;net0;ide0"
+  onboot      = true
   disk {
     size     = var.master_node_disk_size
     type     = var.master_node_disk_type
