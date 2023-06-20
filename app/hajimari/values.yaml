@@ -6,6 +6,9 @@ hajimari:
     darkTheme: horizon
   ingress:
     main:
+      ingressClassName: nginx
+      annotations:
+        cert-manager.io/cluster-issuer: acme-issuer
       enabled: true
       hosts:
         - host: &host home.vergl.cloud
