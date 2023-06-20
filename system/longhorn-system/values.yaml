@@ -3,3 +3,17 @@ longhorn:
     nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
   persistence:
     defaultClassReplicaCount: 3
+  ingress:
+      enabled: true
+      ingressClassName: nginx
+      annotations:
+        cert-manager.io/cluster-issuer: acme-issuer
+        hajimari.io/enable: true
+        hajimari.io/appName: Longhorn
+        hajimari.io/icon: nas
+      hosts:
+        - &host longhorn.vergl.cloud
+      tls:
+        - secretName: longhorn-tls-certificate
+          hosts:
+            - *host
