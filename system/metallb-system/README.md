@@ -10,34 +10,22 @@ MetalLB aims to redress this imbalance by offering a network load balancer imple
 
 ## Configuration
 
-Configuration of *Metallb* is contained in the `resources` directory.
+Configuration of *Metallb* is contained in the `templates` directory.
 
-## Installation
+## Manual Installation
 
 Install helm if not already installed:
 ```bash
 brew install helm
 ```
 
-Generate manifests and apply them to the cluster
+Install Metallb using helm:
 ```bash
-kubectl apply -k .
+helm install metallb . --create-namespace --namespace metallb-system
 ```
-
-### CRD installation problems
-
-Sometimes `kustomize` makes reordering or some CRDs are not getting applied immediately. In this case, we can notice such warnings:
-```text
-resource mapping not found for name: "default-pool" namespace: "metallb-system" from ".": no matches for kind "IPAddressPool" in version "metallb.io/v1beta1"
-ensure CRDs are installed first
-resource mapping not found for name: "l2-ip" namespace: "metallb-system" from ".": no matches for kind "L2Advertisement" in version "metallb.io/v1beta1"
-ensure CRDs are installed first
-```
-
-In such cases, we should `apply` our configuration once again after a few seconds.
 
 ## Deletion
-Generate manifests and destroy them
+Uninstall Metallb using helm:
 ```bash
-kubectl delete -k .
+helm uninstall metallb . --create-namespace --namespace metallb-system
 ```
