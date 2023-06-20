@@ -1,0 +1,80 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: external-dns
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: external-dns
+rules:
+- apiGroups: [""]
+  resources: ["services","endpoints","pods"]
+  verbs: ["get","watch","list"]
+- apiGroups: ["extensions","networking.k8s.io"]
+  resources: ["ingresses"]
+  verbs: ["get","watch","list"]
+- apiGroups: [""]
+  resources: ["nodes"]
+  verbs: ["list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: external-dns-viewer
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: external-dns
+subjects:
+- kind: ServiceAccount
+  name: external-dns
+  namespace: default
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: external-dns
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: external-dns
+  template:
+    metadata:
+      labels:
+        app: external-dns
+    spec:
+      serviceAccountName: external-dns
+      containers:
+      - name: external-dns
+        image: registry.k8s.io/external-dns/external-dns:v0.13.5
+        args:
+        - --source=ingress # ingress is also possible
+        - --domain-filter=vergl.cloud # (optional) limit to only example.com domains; change to match the zone created above.
+        - --provider=cloudflare
+        - --cloudflare-dns-records-per-page=5000 # (optional) configure how many DNS records to fetch per request
+        env:
+        - name: CF_API_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: cloudflare-api-token
+              key: api-token
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: cloudflare-api-token
+  namespace: external-dns
+spec:
+  encryptedData:
+    api-token: AgCILH+5P55pdfmCGSGGmG1pmQf/L/CS5CgOJBFHk8bFpe8XyY7HrNLOezzpuBbC3Wli5DyQFKssjocmMHcJVr3hB+KsUmR4eXdDZVMU3+g1tWocwpM9OgYqXS0PtA0SNPtUIkwL64DueUNygc9KCWehHeKMA/KbDYPlBCZj8ezOALN6BvJ7SM9uGU12O793RkD51oMOroFtiGiO74DcqwDMxJ2wnSNu7dvoeHZqvKbacudVpPCrXHLwlH4lTh56H2k+C6sbR35969vKiBDMS655OepAtfmoJPUHpc+vGWRo9nMSg85wltxvhh2kmA2DwpP/TwYGtV7C5Oog/pk+IQ+xocD7secFEvB113MLQ27Lvf9tojZptP9CyT/tW9tY/DtzTPPFTSx272MqRVRWPJdf/D74HAM6XX5wCBK51aebt2vEYZ1P7eGHD1zsuJTAyOfONwGTo/J7U0klwBMbf/xSjlPxMDj3zKydrik8KRSM0deS7ASVJT/hbrCtNpsyrk4VF2k+HSBVYv6Hc8/CkXS01zz5v8amAtCD5gnPC02BHqqGdO/H9xGx+cEPo4X+9Gzjr7bk2d5QyGtuWbS+7pza/ut89JVIIEWtKanGNNALf1CkWVg+gxDHxTuckisr4myNomOuqFDQ1Wwo9WanVcI3jRzNPADi4JF0EvtFVzyAjy2eAlJoE6banJWJqxv5OL/UVOa+RM3DGh5tcXdKgfcLPlKiMP9QDeJVmY52CwxCUl5o2g/Vz4wh
+  template:
+    metadata:
+      creationTimestamp: null
+      name: cloudflare-api-token
+      namespace: external-dns
+    type: Opaque
+
