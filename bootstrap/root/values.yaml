@@ -2,6 +2,6 @@ gitops:
   repo: https://github.com/vergl/homelab
   revision: master
 stacks:
-  - name: kubernetes/bootstrap
+  - name: bootstrap
     namespace: argocd  # Override default value
-  - name: kubernetes/system
+  - name: system
