@@ -1,20 +1,21 @@
 hajimari:
-  name: Stanislav
-  title: Hajimari
-  lightTheme: gazette
-  darkTheme: horizon
-ingress:
-  main:
-    enabled: true
-    hosts:
-      - host: &host home.vergl.cloud
-        paths:
-          - path: /
-            pathType: Prefix
-    tls:
-      - secretName: hajimari-tls-certificate
-        hosts:
-          - *host
-persistence:
-  data:
-    enabled: false
+  hajimari:
+    name: Stanislav
+    title: Hajimari
+    lightTheme: gazette
+    darkTheme: horizon
+  ingress:
+    main:
+      enabled: true
+      hosts:
+        - host: &host home.vergl.cloud
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+        - secretName: hajimari-tls-certificate
+          hosts:
+            - *host
+  persistence:
+    data:
+      enabled: false
