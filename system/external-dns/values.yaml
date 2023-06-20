@@ -10,5 +10,4 @@ external-dns:
     - --annotation-filter=external-dns.alpha.kubernetes.io/exclude notin (true)
     - --source=ingress # ingress is also possible
     - --domain-filter=vergl.cloud # (optional) limit to only example.com domains; change to match the zone created above.
-    - --provider=cloudflare
     - --cloudflare-dns-records-per-page=5000 # (optional) configure how many DNS records to fetch per request
