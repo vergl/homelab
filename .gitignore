@@ -33,3 +33,5 @@ credentials.auto.tfvars
 
 *.auto.pkrvars.hcl
 *.log
+Chart.lock
+charts/

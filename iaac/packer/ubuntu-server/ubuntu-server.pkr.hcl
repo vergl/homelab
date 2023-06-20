@@ -25,7 +25,7 @@ source "proxmox" "ubuntu-server-2204" {
     # (Option 2) Download ISO
     iso_url = "https://releases.ubuntu.com/22.04.1/ubuntu-22.04.1-live-server-amd64.iso"
     iso_checksum = "10f19c5b2b8d6db711582e0e27f5116296c34fe4b313ba45f9b201a5007056cb"
-    iso_storage_pool = "local"
+    iso_storage_pool = "ssd_templates"
     unmount_iso = true
 
     # VM System Settings
@@ -35,10 +35,10 @@ source "proxmox" "ubuntu-server-2204" {
     scsi_controller = "virtio-scsi-pci"
 
     disks {
-        disk_size = "20G"
+        disk_size = "10G"
         format = "raw"
-        storage_pool = "ssdint"
-        storage_pool_type = "lvm"
+        storage_pool = "ssd_disks"
+        storage_pool_type = "lvm-thin"
         type = "virtio"
     }
 
@@ -56,7 +56,7 @@ source "proxmox" "ubuntu-server-2204" {
 
     # VM Cloud-Init Settings
     cloud_init = true
-    cloud_init_storage_pool = "ssdint"
+    cloud_init_storage_pool = "ssd_disks"
     os = "l26"
     onboot = true
 

@@ -86,7 +86,7 @@ variable "master_node_num" {
 variable "master_node_memory" {
   description = "Master node memory (in Mb)"
   type        = number
-  default     = 4096
+  default     = 8192
 }
 
 variable "master_node_cores" {
@@ -104,13 +104,13 @@ variable "master_node_disk_type" {
 variable "master_node_disk_size" {
   description = "The size of the created disk"
   type        = string
-  default     = "20G"
+  default     = "50G"
 }
 
 variable "master_node_storage" {
   description = "The name of the storage pool on which to store the disk"
   type        = string
-  default     = "ssdint"
+  default     = "ssd_disks"
 }
 
 variable "master_node_ips" {
@@ -133,13 +133,13 @@ variable "worker_node_num" {
 variable "worker_node_memory" {
   description = "Worker node memory (in Mb)"
   type        = number
-  default     = 2048
+  default     = 8192
 }
 
 variable "worker_node_cores" {
   description = "Worker node cores"
   type        = number
-  default     = 1
+  default     = 2
 }
 
 variable "worker_node_disk_type" {
@@ -151,13 +151,13 @@ variable "worker_node_disk_type" {
 variable "worker_node_disk_size" {
   description = "The size of the created disk"
   type        = string
-  default     = "20G"
+  default     = "100G"
 }
 
 variable "worker_node_storage" {
   description = "The name of the storage pool on which to store the disk"
   type        = string
-  default     = "ssdint"
+  default     = "ssd_disks"
 }
 
 variable "worker_node_ips" {
@@ -192,13 +192,13 @@ variable "bastion_disk_type" {
 variable "bastion_disk_size" {
   description = "The size of the created disk"
   type        = string
-  default     = "20G"
+  default     = "10G"
 }
 
 variable "bastion_storage" {
   description = "The name of the storage pool on which to store the disk"
   type        = string
-  default     = "ssdint"
+  default     = "ssd_disks"
 }
 
 variable "bastion_ip" {
@@ -229,13 +229,13 @@ variable "postgresql_disk_type" {
 variable "postgresql_disk_size" {
   description = "The size of the created disk"
   type        = string
-  default     = "50G"
+  default     = "20G"
 }
 
 variable "postgresql_storage" {
   description = "The name of the storage pool on which to store the disk"
   type        = string
-  default     = "ssdint"
+  default     = "ssd_disks"
 }
 
 variable "postgresql_ip" {
@@ -267,13 +267,13 @@ variable "docker_vm_disk_type" {
 variable "docker_vm_disk_size" {
   description = "The size of the created disk"
   type        = string
-  default     = "50G"
+  default     = "20G"
 }
 
 variable "docker_vm_storage" {
   description = "The name of the storage pool on which to store the disk"
   type        = string
-  default     = "ssdint"
+  default     = "ssd_disks"
 }
 
 variable "docker_vm_ip" {
