@@ -4,11 +4,28 @@
 
 ## Installation
 
-Install `cert-manager` using `kustomize`:
-```bash
-kubectl apply -k .
+### Prerequisites
+`sealed-secrets` controller should be installed in cluster. Also, you should have `kubeseal` utility installed on your machine.
+
+### Generate SealedSecret in place of regular Secret
+You have to create a secret manifest with cloudflare api-token. Example (filename: _cloudflare-secret.yaml_)
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cloudflare-api-token-secret
+  namespace: cert-manager
+type: Opaque
+stringData:
+  api-token: <your token here>
 ```
 
-Install [godaddy-webhook](https://github.com/snowdrop/godaddy-webhook) with `kubectl`:
+Then we have to **seal** it with `kubeseal`:
 ```bash
-kubectl apply -f https://github.com/snowdrop/godaddy-webhook/blob/main/deploy/webhook-all.yml
+kubeseal --controller-namespace sealed-secrets --controller-name sealed-secrets --format yaml <cloudflare-secret.yaml > sealed-cloudflare-secret.yaml
+```
+
+Don't forget to delete Secret file before deploying to repository
+```bash
+rm cloudflare-secret.yaml
+```
