@@ -11,9 +11,6 @@ longhorn:
         hajimari.io/enable: true
         hajimari.io/appName: Longhorn
         hajimari.io/icon: nas
-      hosts:
-        - &host longhorn.vergl.cloud
-      tls:
-        - secretName: longhorn-tls-certificate
-          hosts:
-            - *host
+      host: &host longhorn.vergl.cloud
+      tls: true
+      tlsSecret: longhorn-tls-certificate
