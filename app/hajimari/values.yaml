@@ -4,6 +4,30 @@ hajimari:
     title: Hajimari
     lightTheme: gazette
     darkTheme: horizon
+    customApps:
+      - group: Homelab
+        apps:
+          - name: Proxmox
+            url: 'https://proxmox.network.home:8006'
+            icon: 'mdi:server'
+            info: Proxmox Hypervisor
+    globalBookmarks:
+      - group: Communicate
+        bookmarks:
+          - name: Twitter
+            url: 'https://twitter.com'
+          - name: Instagram
+            url: 'http://instagram.com'
+          - name: Reddit
+            url: 'https://reddit.com'
+      - group: Entertainment
+        bookmarks:
+          - name: Youtube
+            url: 'https://youtube.com'
+          - name: Twitch.TV
+            url: 'https://twitch.tv'
+          - name: Yandex.Music
+            url: 'https://music.yandex.ru'
   ingress:
     main:
       ingressClassName: nginx
