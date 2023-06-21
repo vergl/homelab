@@ -7,7 +7,7 @@ argo-cd:
       ingressClassName: nginx
       annotations:
         cert-manager.io/cluster-issuer: acme-issuer
-        hajimari.io/enable: true
+        hajimari.io/enable: 'true'
         hajimari.io/appName: ArgoCD
         hajimari.io/icon: robot
       hosts:
