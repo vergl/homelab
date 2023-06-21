@@ -1,5 +1,6 @@
 hajimari:
   hajimari:
+    defaultEnable: true
     name: Stanislav
     title: Hajimari
     lightTheme: gazette
