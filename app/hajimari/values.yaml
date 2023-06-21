@@ -1,5 +1,6 @@
 hajimari:
   hajimari:
+    defaultEnable: true
     name: Stanislav
     title: Hajimari
     lightTheme: gazette
@@ -33,6 +34,7 @@ hajimari:
       ingressClassName: nginx
       annotations:
         cert-manager.io/cluster-issuer: acme-issuer
+        hajimari.io/enable: false
       enabled: true
       hosts:
         - host: &host home.vergl.cloud
