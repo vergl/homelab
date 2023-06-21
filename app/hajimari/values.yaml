@@ -1,8 +1,10 @@
 hajimari:
   hajimari:
     defaultEnable: true
+    namespaceSelector:
+      any: true
     name: Stanislav
-    title: Hajimari
+    title: Homepage
     lightTheme: gazette
     darkTheme: horizon
     customApps:
