@@ -1,8 +1,5 @@
 hajimari:
   hajimari:
-    defaultEnable: true
-    namespaceSelector:
-      any: true
     name: Stanislav
     title: Hajimari
     lightTheme: gazette
