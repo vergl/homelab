@@ -23,3 +23,5 @@ grafana:
       searchNamespace: monitoring-system
   persistence:
     enabled: true
+    accessModes:
+      - ReadWriteMany
