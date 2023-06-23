@@ -3,5 +3,5 @@ name: SealedSecrets
 version: 0.0.1
 dependencies:
   - name: uptime-kuma
-    version: 2.9.0
+    version: 2.9.1
     repository: https://dirsigler.github.io/uptime-kuma-helm
