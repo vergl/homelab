@@ -8,6 +8,8 @@ uptime-kuma:
       hajimari.io/icon: chart-box-outline
     hosts:
       - host: &host uk.vergl.cloud
+        paths:
+          - path: /
     tls:
       - secretName: uk-general-tls
         hosts:
