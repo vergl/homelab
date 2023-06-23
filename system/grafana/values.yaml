@@ -1,4 +1,8 @@
 grafana:
+  admin:
+    existingSecret: "admin-secret"
+    userKey: admin-user
+    passwordKey: admin-password
   serviceMonitor:
     enabled: true
   ingress:
