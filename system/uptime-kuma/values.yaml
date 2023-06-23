@@ -1,0 +1,14 @@
+uptime-kuma:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: acme-issuer
+      hajimari.io/appName: Uptime Kuma
+      hajimari.io/icon: chart-box-outline
+    hosts:
+      - &host uk.vergl.cloud
+    tls:
+      - secretName: uk-general-tls
+        hosts:
+          - *host
