@@ -9,6 +9,14 @@ kube-prometheus-stack:
         url: http://loki.loki:3100
   prometheus:
     prometheusSpec:
+      storageSpec: 
+        volumeClaimTemplate:
+          spec:
+            storageClassName: longhorn
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 10Gi
       ruleSelectorNilUsesHelmValues: false
       serviceMonitorSelectorNilUsesHelmValues: false
       podMonitorSelectorNilUsesHelmValues: false
