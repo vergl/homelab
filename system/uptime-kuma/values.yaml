@@ -7,7 +7,7 @@ uptime-kuma:
       hajimari.io/appName: Uptime Kuma
       hajimari.io/icon: chart-box-outline
     hosts:
-      - &host uk.vergl.cloud
+      - host: &host uk.vergl.cloud
     tls:
       - secretName: uk-general-tls
         hosts:
