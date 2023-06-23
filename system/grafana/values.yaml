@@ -21,7 +21,3 @@ grafana:
     datasources:
       enabled: true
       searchNamespace: monitoring-system
-  persistence:
-    enabled: true
-    accessModes:
-      - ReadWriteMany
