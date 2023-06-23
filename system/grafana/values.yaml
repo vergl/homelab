@@ -1,4 +1,6 @@
 grafana:
+  serviceMonitor:
+    enabled: true
   ingress:
     enabled: true
     ingressClassName: nginx
@@ -19,3 +21,5 @@ grafana:
     datasources:
       enabled: true
       searchNamespace: monitoring-system
+  persistence:
+    enabled: true
