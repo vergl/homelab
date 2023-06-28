@@ -6,10 +6,3 @@ prometheus-pve-exporter:
   serviceMonitor:
     enabled: true
     pveTargets: ["192.168.0.108"]
-    relabelings: 
-      - sourceLabels: [__address__]
-        targetLabel: __param_target
-      - sourceLabels: [__param_target]
-        targetLabel: instance
-      - targetLabel: __address__
-        replacement: prometheus-pve-exporter:9221
