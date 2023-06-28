@@ -5,4 +5,4 @@ prometheus-pve-exporter:
     pveExistingSecretName: "pve-token-secret"
   serviceMonitor:
     enabled: true
-  pveTargets: ["192.168.0.108"]
+    pveTargets: ["192.168.0.108"]
