@@ -1,0 +1,6 @@
+prometheus-pve-exporter:
+  env:
+    pveAuthType: "token"
+    pveExistingSecretName: "pve-token-secret"
+  serviceMonitor:
+    enabled: true
