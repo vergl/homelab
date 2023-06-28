@@ -1,5 +1,6 @@
 prometheus-pve-exporter:
   env:
+    pveUser: "exporter@pve"
     pveAuthType: "token"
     pveExistingSecretName: "pve-token-secret"
   serviceMonitor:
