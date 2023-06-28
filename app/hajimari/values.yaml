@@ -11,7 +11,7 @@ hajimari:
       - group: Homelab
         apps:
           - name: Proxmox
-            url: 'https://proxmox.network.home:8006'
+            url: 'https://proxmox.vergl.cloud'
             icon: 'mdi:server'
             info: Proxmox Hypervisor
     globalBookmarks:
