@@ -1,3 +1,4 @@
 jackett:
   persistence:
+    storageClassName: "longhorn"
     enabled: true
