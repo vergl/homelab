@@ -1,0 +1,7 @@
+apiVersion: v2
+name: jackett
+version: 0.0.1
+dependencies:
+  - name: jackett
+    version: 0.1.3
+    repository: https://halkeye.github.io/helm-charts/
