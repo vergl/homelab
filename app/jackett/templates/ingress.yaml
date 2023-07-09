@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: acme-issuer
+    hajimari.io/appName: Jackett
+    hajimari.io/icon: archive-search
+  name: jackett
+  namespace: jackett
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: jackett.vergl.cloud
+    http:
+      paths:
+      - backend:
+          service:
+            name: jackett
+            port:
+              number: 9117
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - jackett.vergl.cloud
+    secretName: jackett-tls-certificate
