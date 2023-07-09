@@ -1,0 +1,7 @@
+apiVersion: v2
+name: Radarr
+version: 0.0.1
+dependencies:
+  - name: radarr
+    version: 0.3.0
+    repository: https://charts.alekc.dev

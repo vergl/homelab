@@ -1,0 +1,22 @@
+radarr:
+  ingress:
+    enabled: true
+    className: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: acme-issuer
+      hajimari.io/appName: Radarr
+      hajimari.io/icon: television
+    hosts:
+      - host: &host radarr.vergl.cloud
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    tls:
+      - secretName: radarr-general-tls
+        hosts:
+          - *host
+  persistence:
+    storageClass: "longhorn"
+    enabled: true
+    accessMode: ReadWriteOnce
+    size: 800Mi
