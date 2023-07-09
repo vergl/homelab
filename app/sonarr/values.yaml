@@ -1,0 +1,22 @@
+sonarr:
+  ingress:
+    enabled: true
+    className: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: acme-issuer
+      hajimari.io/appName: Sonarr
+      hajimari.io/icon: television-classic
+    hosts:
+      - host: &host sonarr.vergl.cloud
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    tls:
+      - secretName: sonarr-general-tls
+        hosts:
+          - *host
+  persistence:
+    storageClass: "longhorn"
+    enabled: true
+    accessMode: ReadWriteOnce
+    size: 800Mi
