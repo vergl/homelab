@@ -1,4 +1,4 @@
-my-transmission-openvpn:
+transmission-openvpn:
   ingress:
     enabled: true
     className: nginx

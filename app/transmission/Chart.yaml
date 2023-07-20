@@ -2,6 +2,6 @@ apiVersion: v2
 name: Transmission
 version: 0.0.1
 dependencies:
-  - name: my-transmission-openvpn
+  - name: transmission-openvpn
     version: 2.5.0
     repository: https://utkuozdemir.org/helm-charts
