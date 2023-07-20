@@ -18,7 +18,6 @@ transmission-openvpn:
   persistence:
     storageClass: "longhorn"
     enabled: true
-    volumeName: "media-downloads"
     accessModes: 
     - ReadWriteMany
     size: 150Gi
