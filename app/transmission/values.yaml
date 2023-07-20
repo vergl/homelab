@@ -19,5 +19,5 @@ transmission-openvpn:
     storageClass: "longhorn"
     enabled: true
     accessModes: 
-    - ReadWriteMany
+    - ReadWriteOnce
     size: 150Gi
