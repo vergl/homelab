@@ -1,7 +1,7 @@
 apiVersion: v2
-name: Sonarr
+name: Transmission
 version: 0.0.1
 dependencies:
-  - name: sonarr
-    version: 0.2.2
-    repository: https://charts.alekc.dev
+  - name: my-transmission-openvpn
+    version: 2.5.0
+    repository: https://utkuozdemir.org/helm-charts
