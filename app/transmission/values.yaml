@@ -21,4 +21,11 @@ transmission-openvpn:
     accessModes: 
     - ReadWriteOnce
     size: 150Gi
-  mountTunDevice: false
+  extraVolumes:
+    - name: ovpn-config
+      secret:
+        defaultMode: 420
+        secretName: ovpn-config
+  extraVolumeMounts:
+    - mountPath: /etc/openvpn/custom/
+      name: ovpn-config
