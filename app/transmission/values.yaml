@@ -29,3 +29,5 @@ transmission-openvpn:
   extraVolumeMounts:
     - mountPath: /etc/openvpn/custom/
       name: ovpn-config
+  env:
+    OPENVPN_CONFIG_URL: /etc/openvpn/custom/ovpn-config
