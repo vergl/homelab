@@ -24,7 +24,7 @@ transmission-openvpn:
   extraVolumes:
     - name: ovpn-config
       secret:
-        defaultMode: 438
+        defaultMode: 511
         secretName: ovpn-config
   extraVolumeMounts:
     - mountPath: /etc/openvpn/custom/
