@@ -21,3 +21,4 @@ transmission-openvpn:
     accessModes: 
     - ReadWriteOnce
     size: 150Gi
+  mountTunDevice: false
