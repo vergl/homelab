@@ -30,4 +30,5 @@ transmission-openvpn:
     - mountPath: /etc/openvpn/custom/
       name: ovpn-config
   env:
-    OPENVPN_CONFIG_URL: /etc/openvpn/custom/ovpn-config
+    OPENVPN_PROVIDER: custom
+    OPENVPN_CONFIG: ovpn-config
