@@ -1,34 +1,13 @@
-transmission-openvpn:
+transmission:
   ingress:
     enabled: true
-    className: nginx
-    annotations:
-      cert-manager.io/cluster-issuer: acme-issuer
-      hajimari.io/appName: Transmission
-      hajimari.io/icon: car-shift-pattern
-    hosts:
-      - host: &host transmission.vergl.cloud
-        paths:
-          - path: /
-            pathType: ImplementationSpecific
-    tls:
-      - secretName: transmission-general-tls
-        hosts:
-          - *host
+    hostname: &host transmission.vergl.cloud
+    path: /
+    pathType: ImplementationSpecific
+    ingressClassName: nginx
   persistence:
-    storageClass: "longhorn"
+    storageClassName: "longhorn"
     enabled: true
     accessModes: 
     - ReadWriteOnce
     size: 150Gi
-  extraVolumes:
-    - name: ovpn-config
-      secret:
-        defaultMode: 420
-        secretName: ovpn-config
-  extraVolumeMounts:
-    - mountPath: /tmp/openvpn/custom/
-      name: ovpn-config
-  env:
-    OPENVPN_PROVIDER: custom
-    OPENVPN_CONFIG: ovpn-config
