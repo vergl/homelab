@@ -3,5 +3,5 @@ name: Transmission
 version: 0.0.1
 dependencies:
   - name: transmission
-    version: 1.6.0
+    version: 1.7.0
     repository: https://charts.damoun.dev
