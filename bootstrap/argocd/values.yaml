@@ -1,4 +1,6 @@
 argo-cd:
+  global:
+    domain: &host argocd.vergl.cloud
   server:
     extraArgs:
       - --insecure
@@ -10,12 +12,10 @@ argo-cd:
         hajimari.io/enable: 'true'
         hajimari.io/appName: ArgoCD
         hajimari.io/icon: robot
-      hosts:
-        - &host argocd.vergl.cloud
-      tls:
-        - secretName: argocd-tls-certificate
-          hosts:
-            - *host
+      extraTls:
+        - hosts:
+          - *host
+        secretName: argocd-tls-certificate
     metrics:
       enabled: true
       serviceMonitor:
