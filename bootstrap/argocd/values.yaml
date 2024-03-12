@@ -1,6 +1,11 @@
 argo-cd:
   global:
     domain: &host argocd.vergl.cloud
+    
+  configs:
+    params:
+      server.insecure: true
+
   server:
     extraArgs:
       - --insecure
@@ -15,7 +20,7 @@ argo-cd:
       extraTls:
         - hosts:
           - *host
-        secretName: argocd-tls-certificate
+          secretName: argocd-tls-certificate
     metrics:
       enabled: true
       serviceMonitor:
