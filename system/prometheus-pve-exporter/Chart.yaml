@@ -4,4 +4,4 @@ version: 0.0.1
 dependencies:
   - name: prometheus-pve-exporter
     version: 1.2.1
-    repository: https://christianknell.github.io/helm-charts
+    repository: https://christianhuth.github.io/helm-charts
