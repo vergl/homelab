@@ -3,5 +3,5 @@ name: Radarr
 version: 0.0.1
 dependencies:
   - name: radarr
-    version: 1.7.0
+    version: 1.10.0
     repository: https://charts.alekc.dev
