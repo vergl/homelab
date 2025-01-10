@@ -3,5 +3,5 @@ name: Prometheus PVE Exporter
 version: 0.0.1
 dependencies:
   - name: prometheus-pve-exporter
-    version: 1.2.5
+    version: 1.2.6
     repository: https://christianhuth.github.io/helm-charts
