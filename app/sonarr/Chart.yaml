@@ -3,5 +3,5 @@ name: Sonarr
 version: 0.0.1
 dependencies:
   - name: sonarr
-    version: 0.2.2
+    version: 1.8.3
     repository: https://charts.alekc.dev
